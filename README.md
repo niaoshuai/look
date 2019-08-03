@@ -36,30 +36,20 @@ mkdir -pv dataset/test
 
 ```
 
-### 2. 切图
-```shell
-# 添加图片资源到source_train
-# 修改 setting.py(根据自己的实际情况切图)
-## 图像大小
-IMAGE_HEIGHT = 20
-IMAGE_WIDTH = 60
-## 切图参数，图片大小要一致
-box = {}
-box[0] = (6,0,18,20)
-box[1] = (18,0,30,20)
-box[2] = (30,0,43,20)
-box[3] = (45,0,56,20)
-# 修改start.py
-cut_train()
-# 执行
-python3 start.py
-# 检查 dataset/train 是否已经被成功切图
-```
-
-### 3. 测试切图 效果
+### 2. 测试切图 效果
 
 ```shell
 # 添加图片资源到source_test
+# 修改 setting.py(根据自己的实际情况切图)
+## 图像大小 (切图)
+IMAGE_HEIGHT = 20
+IMAGE_WIDTH = 12
+## 切图参数，图片大小要一致(每个图片宽高都要一直)
+box = {}
+box[0] = (6,0,18,20)
+box[1] = (18,0,30,20)
+box[2] = (32,0,44,20)
+box[3] = (44,0,56,20)
 # 修改start.py
 cut_test()
 # 执行
@@ -67,8 +57,58 @@ python3 start.py
 # 检查 test 目录
 ```
 
+
+### 3. 切图
+
+```shell
+# 添加图片资源到source_train
+# 修改start.py
+cut_train()
+# 执行
+python3 start.py
+# 检查 dataset/train 是否已经被成功切图
+```
+
+
 ### 4. 训练
 
+```shell
+# 添加图片资源到source_train
+# 修改start.py
+train('model.pkl')
+# 执行
+python3 start.py
+# 检查 是否有model.pkl文件
+```
+
+### 5. 测试训练结果
+
+```shell
+# 添加图片资源到test
+# 修改start.py
+test('model.pkl')
+# 执行
+python3 start.py
+# 检查 是否有model.pkl文件
+```
+
+## 新验证码全新生成
+
+
+```shell
+mkdir -pv dataset/download
+mkdir -pv dataset/captcha
+
+# 添加图片资源到download
+# 修改start.py
+picture = setting.DOWNLOAD_PATH / '0013_1564737864180.PNG'
+cut_captcha(picture)
+code = recognize('model.pkl')
+print(code)
+# 执行
+python3 start.py
+# 检查 是否有model.pkl文件
+```
 
 在合适的目录，如 D:\\ 目录下，打开 CMD 命令行窗口，输入如下命令
 

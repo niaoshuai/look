@@ -8,16 +8,16 @@ ALL_CHAR_SET = NUMBER + ALPHABET
 ALL_CHAR_SET_LEN = len(ALL_CHAR_SET)
 MAX_CAPTCHA = 1
 
-# 图像大小
+# 图像大小(切图)
 IMAGE_HEIGHT = 20
-IMAGE_WIDTH = 60
+IMAGE_WIDTH = 12
 
-# 切图参数，图片大小要一致
+# 切图参数，图片大小要一致(每个图片宽高都要一直)
 box = {}
 box[0] = (6,0,18,20)
 box[1] = (18,0,30,20)
-box[2] = (30,0,43,20)
-box[3] = (45,0,56,20)
+box[2] = (32,0,44,20)
+box[3] = (44,0,56,20)
 
 LOOK_PATH = Path('.')
 DATASET_PATH = LOOK_PATH / 'dataset'

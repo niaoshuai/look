@@ -6,10 +6,14 @@ class CNN(nn.Module):
     def __init__(self):
         super(CNN, self).__init__()
         self.layer1 = nn.Sequential(
+            # filter定义为3x1x1，输出32个特征, 即32个filter
             nn.Conv2d(1, 32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
-            nn.Dropout(0.5),  # drop 50% of the neuron
-            nn.ReLU(),
+             # drop 50% of the neuron 防止过拟合
+            nn.Dropout(0.5), 
+            # rulu激活函数 
+            nn.ReLU(), 
+             # 池化
             nn.MaxPool2d(2))
         self.layer2 = nn.Sequential(
             nn.Conv2d(32, 64, kernel_size=3, padding=1),
@@ -28,10 +32,15 @@ class CNN(nn.Module):
             nn.Dropout(0.5),  # drop 50% of the neuron
             nn.ReLU())
         self.rfc = nn.Sequential(
-            nn.Linear(1024, setting.MAX_CAPTCHA*setting.ALL_CHAR_SET_LEN),
+            nn.Linear(1024, setting.MAX_CAPTCHA*len(setting.NUMBER)),
         )
 
     def forward(self, x):
+        '''
+            三层卷积神经网络计算图
+            :param x:
+            :return:
+        '''
         out = self.layer1(x)
         out = self.layer2(out)
         out = self.layer3(out)
@@ -39,3 +48,5 @@ class CNN(nn.Module):
         out = self.fc(out)
         out = self.rfc(out)
         return out
+       
+        

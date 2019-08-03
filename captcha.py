@@ -29,15 +29,14 @@ def train(model_name='model.pkl'):
             loss.backward()
             optimizer.step()
         print('epoch: % -3s loss: %s' % (epoch, loss.item()))
-    torch.save(cnn.state_dict(), setting.MODEL_PATH /
-               model_name)  # current is model.pkl
+    torch.save(cnn.state_dict(), model_name)  # current is model.pkl
     print('save last model')
 
 
 def test(model_name='model.pkl'):
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load(setting.MODEL_PATH / model_name))
+    cnn.load_state_dict(torch.load(model_name))
     print('load cnn net.')
 
     test_dataloader = dataset.get_test_data_loader()
@@ -73,8 +72,9 @@ def test(model_name='model.pkl'):
 def recognize(model_name='model.pk'):
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load(setting.MODEL_PATH / model_name))
+    cnn.load_state_dict(torch.load(model_name))
     # print(load cnn net.)
+    NUM_LEN = len(setting.NUMBER)
 
     captcha_dataloader = dataset.get_captcha_data_loader()
     code = ''
@@ -87,8 +87,8 @@ def recognize(model_name='model.pk'):
         predict_label = cnn(vimage)
 
         for i in range(setting.MAX_CAPTCHA):
-            code += setting.ALL_CHAR_SET[np.argmax(predict_label[0, i * setting.ALL_CHAR_SET_LEN: (
-                i + 1) * setting.ALL_CHAR_SET_LEN].data.numpy())]
+            code += setting.NUMBER[np.argmax(predict_label[0, i * NUM_LEN: (
+                i + 1) * NUM_LEN].data.numpy())]
 
     return code
 
