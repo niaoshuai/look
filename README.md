@@ -92,7 +92,7 @@ python3 start.py
 # 检查 是否有model.pkl文件
 ```
 
-## 新验证码全新生成
+## 新验证码
 
 
 ```shell
@@ -101,7 +101,7 @@ mkdir -pv dataset/captcha
 
 # 添加图片资源到download
 # 修改start.py
-picture = setting.DOWNLOAD_PATH / '0013_1564737864180.PNG'
+picture = setting.DOWNLOAD_PATH / 'image.PNG'
 cut_captcha(picture)
 code = recognize('model.pkl')
 print(code)
