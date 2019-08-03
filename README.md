@@ -107,7 +107,7 @@ code = recognize('model.pkl')
 print(code)
 # 执行
 python3 start.py
-# 检查 是否有model.pkl文件
+# 检查 输出结果是否正确
 ```
 
 在合适的目录，如 D:\\ 目录下，打开 CMD 命令行窗口，输入如下命令
