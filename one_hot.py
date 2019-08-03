@@ -1,5 +1,5 @@
 import numpy as np
-from look import setting
+import setting
 
 
 def encode(text):

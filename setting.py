@@ -9,15 +9,15 @@ ALL_CHAR_SET_LEN = len(ALL_CHAR_SET)
 MAX_CAPTCHA = 1
 
 # 图像大小
-IMAGE_HEIGHT = 26
-IMAGE_WIDTH = 15
+IMAGE_HEIGHT = 20
+IMAGE_WIDTH = 60
 
 # 切图参数，图片大小要一致
 box = {}
-box[0] = (9,3,24,30)
-box[1] = (24,3,39,30)
-box[2] = (39,3,54,30)
-box[3] = (54,3,69,30)
+box[0] = (6,0,18,20)
+box[1] = (18,0,30,20)
+box[2] = (30,0,43,20)
+box[3] = (45,0,56,20)
 
 LOOK_PATH = Path('.')
 DATASET_PATH = LOOK_PATH / 'dataset'

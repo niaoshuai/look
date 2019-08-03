@@ -1,11 +1,11 @@
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-from look import dataset
-from look.cnn_model import CNN
-from look import setting
+import dataset
+from cnn_model import CNN
+import setting
 import numpy as np
-from look import one_hot
+import one_hot
 from PIL import Image
 
 

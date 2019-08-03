@@ -2,7 +2,7 @@
 import time
 from PIL import Image
 from pathlib import Path
-from look import setting
+import setting
 
 
 def cut_image(f, box, target_folder='dataset/test', t=int(time.time())):

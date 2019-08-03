@@ -1,9 +1,9 @@
-import look.setting
 import setting
-look.setting = setting
+import setting
+setting = setting
 
-from look.cut import cut_captcha, cut_train, cut_test
-from look.captcha import recognize, train, test
+from cut import cut_captcha, cut_train, cut_test
+from captcha import recognize, train, test
 
 
 # 把 **原始训练图集** 切图为单个字符的图集，保存到 **训练图集** 中，本示例默认已切图，重新切图需把 **训练图集** 目录下图片删除
