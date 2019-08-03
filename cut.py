@@ -33,7 +33,7 @@ def cut_images(box, source_folder, target_folder):
     t = int(time.time())
 
     source_path = Path(source_folder)
-    all_images = []
+#     all_images = []
     for f in source_path.iterdir():
         t += len(box)
         cut_image(f, box, target_folder, t)
@@ -47,11 +47,11 @@ def cut_test(box=setting.box, source_folder='dataset/source_test', target_folder
     cut_images(box, source_folder, target_folder)
 
 
-if __name__=='__main__':
-    box = {}
-    box[0] = (9,3,24,30)
-    box[1] = (24,3,39,30)
-    box[2] = (39,3,54,30)
-    box[3] = (54,3,69,30)
+# if __name__=='__main__':
+#     box = {}
+#     box[0] = (9,3,24,30)
+#     box[1] = (24,3,39,30)
+#     box[2] = (39,3,54,30)
+#     box[3] = (54,3,69,30)
 
-    cut_train(box)
+#     cut_train(box)

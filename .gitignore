@@ -1,7 +1,8 @@
 # Cache objects
 packer_cache/
+__pycache__/
 
 # For built boxes
 *.box
-/look/dataset/**/*.png
+dataset/**/*.png
 .git*

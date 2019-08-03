@@ -22,39 +22,60 @@ pip3 install torchvision
 
 ### look 安装
 
-#### 初次安装
-
-```shell
-pip install look
-```
-
-#### 升级
-
-```shell
-pip install -U look
-```
-
 ## 快速体验
+
+### 1. 下载项目初始化
+```shell
+$ git clone https://github.com/niaoshuai/look
+$ cd look
+# 创建切图文件夹
+mkdir -pv dataset/source_train
+mkdir -pv dataset/train
+mkdir -pv dataset/source_test
+mkdir -pv dataset/test
+
+```
+
+### 2. 切图
+```shell
+# 添加图片资源到source_train
+# 修改 setting.py(根据自己的实际情况切图)
+## 图像大小
+IMAGE_HEIGHT = 20
+IMAGE_WIDTH = 60
+## 切图参数，图片大小要一致
+box = {}
+box[0] = (6,0,18,20)
+box[1] = (18,0,30,20)
+box[2] = (30,0,43,20)
+box[3] = (45,0,56,20)
+# 修改start.py
+cut_train()
+# 执行
+python3 start.py
+# 检查 dataset/train 是否已经被成功切图
+```
+
+### 3. 测试切图 效果
+
+```shell
+# 添加图片资源到source_test
+# 修改start.py
+cut_test()
+# 执行
+python3 start.py
+# 检查 test 目录
+```
+
+### 4. 训练
+
 
 在合适的目录，如 D:\\ 目录下，打开 CMD 命令行窗口，输入如下命令
 
 ```shell
-look
-cd look_example
-python start.py
+$ cd look
+$ python start.py
 ```
-
-> 详细文档：https://sweeter.io/#/look/
-
-## 加入我们
-
-QQ 交流群：**158755338**
-> (验证码：python) <small>注意首字母小写</small>
-
-微信公众号：**喜文测试**
-
-![QQ2](https://sweeter.io/docs/_media/QQ.png)![WeChat](https://sweeter.io/docs/_media/WeChat.png)
-
 
 ## 后记
 
