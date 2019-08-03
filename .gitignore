@@ -6,3 +6,5 @@ __pycache__/
 *.box
 dataset/**/*.png
 .git*
+
+model.pkl
