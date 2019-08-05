@@ -32,7 +32,7 @@ class CNN(nn.Module):
             nn.Dropout(0.5),  # drop 50% of the neuron
             nn.ReLU())
         self.rfc = nn.Sequential(
-            nn.Linear(1024, setting.MAX_CAPTCHA*len(setting.NUMBER)),
+            nn.Linear(1024, setting.MAX_CAPTCHA*len(setting.ALL_CHAR_SET)),
         )
 
     def forward(self, x):

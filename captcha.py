@@ -74,7 +74,7 @@ def recognize(model_name='model.pk'):
     cnn.eval()
     cnn.load_state_dict(torch.load(model_name))
     # print(load cnn net.)
-    NUM_LEN = len(setting.NUMBER)
+    # NUM_LEN = len(setting.NUMBER)
 
     captcha_dataloader = dataset.get_captcha_data_loader()
     code = ''
@@ -87,8 +87,8 @@ def recognize(model_name='model.pk'):
         predict_label = cnn(vimage)
 
         for i in range(setting.MAX_CAPTCHA):
-            code += setting.NUMBER[np.argmax(predict_label[0, i * NUM_LEN: (
-                i + 1) * NUM_LEN].data.numpy())]
+            code += setting.ALL_CHAR_SET[np.argmax(predict_label[0, i * setting.ALL_CHAR_SET_LEN: (
+                i + 1) * setting.ALL_CHAR_SET_LEN].data.numpy())]
 
     return code
 

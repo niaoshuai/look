@@ -4,7 +4,8 @@ __pycache__/
 
 # For built boxes
 *.box
-dataset/**/*.png
+dataset/
 .git*
 
-model.pkl
+model.pkl*
+
